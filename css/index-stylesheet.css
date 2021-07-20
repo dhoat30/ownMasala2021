@@ -1,0 +1,384 @@
+html {
+    scroll-behavior: smooth;
+   
+  }
+#usp{ 
+overflow:hidden; 
+}
+/*hero-section*/
+.hero-title a{ 
+    margin: 10px 10px;
+}
+.hero-title a:nth-child(5){
+    background-color: #D1AA67;
+}
+.hero-title a:nth-child(5):hover{
+    background-color: white;
+}
+
+/*88888888888*/ 
+.ring{ 
+    animation-name: rotate; 
+    animation-duration: 3s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+    width: 100px;
+    animation-delay: 0ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+@keyframes rotate{ 
+    0%{ transform: rotate(0);
+    }
+    100%{transform: rotate(180deg);}
+}
+/*custom fonts*/ 
+.broadway-font{ 
+    font-family: Ltc-Broadway, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+    .hero-section-font-size{ 
+        font-size: 80px !important;
+    }
+    .white-font{ 
+        color: white;
+    }
+    .left-align{ 
+        text-align: left !important;
+    }
+    .slogan-text{ 
+        font-family: brush-script-std, sans-serif;
+font-weight: 400;
+font-style: normal;
+        font-size: 60px;
+    }
+    .price-font-size{ 
+        font-size: 40px;
+    }
+    
+.team-info object{ 
+margin: 20px 5px 0 5px;
+}
+.row-specials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.row-specials object{ 
+    width: 50px; 
+    height: auto;
+}
+.row-specials>div{ 
+    width: 350px;
+    margin: 20px 20px;
+    transition: ease-in-out;
+    transition-duration: 500ms;
+}
+.row-specials>div:hover{ 
+   transform: translate(0px,-20px);
+}
+
+/*menu-section*/ 
+.menu-section{
+    width: 100%; 
+    height: auto;
+    display:flex; 
+    justify-content: center;
+    align-items: center;
+}
+.menu-title{ 
+    display: none; 
+}
+.menu-section a{ 
+    display:block; 
+}
+.menu-section>div{ 
+    width:100%;
+}
+.menu-section object{ 
+    width:100%; 
+    height: auto;
+    display: inline-block;
+}
+.takeaway-menu{ 
+    position: relative;
+}
+.takeaway-menu object:nth-child(2){ 
+    display: none;
+}
+
+.takeaway-menu img{ 
+    width: 80%;
+}
+.takeaway-menu a{ 
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.dine-menu{ 
+    position: relative;
+}
+.dine-menu object:nth-child(2){ 
+    display: none;
+}
+
+.dine-menu img{ 
+    width: 80%;
+}
+.dine-menu a{ 
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/*chilly*/ 
+.chilly img{ 
+    width: 200px; 
+    height: auto;
+}
+.chilly-info{ 
+    height: 400px !important;
+}
+
+/*paralax*/ 
+.spiceness-paralax{ 
+    background-image: url('../images/pamel-in-dining-area.jpg'); 
+    width: 100%; 
+    height: 500px;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/*USP*/ 
+.usp-row>div{ 
+  margin: 13px 0px !important; 
+}
+
+.award img{ 
+    width: 200px; 
+    height: auto;
+    display: block;
+    margin: 0 auto 0 0;
+}
+/*faq*/ 
+
+.wrapper{
+    max-width: 1224px;
+    width: 92%;
+  margin: 150px auto;
+}
+
+.wrapper .accordion_wrap .accordion_header{
+  width: 100%;
+  height: auto;
+  background: #292929;
+  padding: 15px;
+  color: #D1AA67;
+  font-weight: 500;
+  border-bottom: 2px solid #D1AA67;
+  position: relative;
+  cursor: pointer;
+  text-align: left;
+  font-size: 20px;
+}
+
+.wrapper .accordion_wrap:first-child .accordion_header{
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.wrapper .accordion_wrap:last-child .accordion_header{
+  border-bottom: 2px solid transparent;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.wrapper .accordion_wrap:last-child .accordion_header:hover{
+  border-bottom: 2px solid transparent;
+}
+
+.wrapper .accordion_wrap .accordion_header:before,
+.wrapper .accordion_wrap .accordion_header:after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+  width: 20px;
+  height: 2px;
+  background: #292929;
+}
+
+.wrapper .accordion_wrap .accordion_header:hover{
+  color: #C19D70;
+  border-color: #C19D70;
+}
+
+.wrapper .accordion_wrap .accordion_header:hover:before,
+.wrapper .accordion_wrap .accordion_header:hover:after{
+  background: #C19D70;
+}
+
+.wrapper .accordion_wrap .accordion_header:after{
+  transform: rotate(-90deg);
+  transition: all 0.5s ease;
+}
+
+.wrapper .accordion_wrap .accordion_body{
+  width: 100%;
+  height: 0px;
+  transition: all 0.5s ease;
+  background: #303030;
+  overflow: hidden;
+}
+
+.wrapper .accordion_wrap .accordion_body p{
+  padding: 15px;
+  font-size: 15px;
+  line-height: 22px;
+  color: #fff;
+    letter-spacing: 2px;
+    text-align: left;
+}
+
+.wrapper .accordion_wrap .accordion_header.active{
+  color: #C19D70; 
+  border-color: #C19D70;
+}
+
+.wrapper .accordion_wrap:last-child .accordion_header.active{
+  border-bottom: 2px solid #C19D70  ;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.wrapper .accordion_wrap .accordion_header.active:before,
+.wrapper .accordion_wrap .accordion_header.active:after{
+  background: #C19D70;
+}
+
+.wrapper .accordion_wrap .accordion_header.active:after{
+  transform: rotate(0deg);
+}
+
+.wrapper .accordion_wrap .accordion_header.active + .accordion_body{
+  height: auto;
+  padding-bottom: 50px;
+}
+/*footer*/ 
+
+.map img{ 
+    width: 100%; 
+    height: auto;
+    display: block; 
+    margin: 0 auto 0 0; 
+}
+.allergy img{ 
+    width: 280px;
+}
+@media only screen and (max-width: 600px) {
+ 
+        .hero-section-font-size{ 
+            font-size: 30px !important;
+        }
+       
+        .slogan-text{ 
+            font-size: 20px;
+        }
+        
+    .row-specials>div{ 
+        width: 300px;
+    }
+    .row-specials object{ 
+        width: 40px; 
+        height: auto;
+    }
+    .scroll-down-wrap{ 
+        display: none;
+    }
+/*menu----------*/ 
+    .takeaway-menu object:nth-child(2){ 
+        display: block;
+        width: 300px;
+        margin: 10px auto;
+    }
+    
+    .dine-menu object:nth-child(2){ 
+        display: block;
+        width: 300px;
+        margin: 10px auto;
+    }
+    .takeaway-menu object:nth-child(1){ 
+        display: none;
+    }
+    
+    .dine-menu object:nth-child(1){ 
+        display: none;
+    }
+    .menu-section{
+        width: 100%; 
+        height: auto;
+        flex-direction: column;
+        display:flex; 
+        justify-content: center;
+        align-items: center;
+        padding: 50px 0;
+    }
+    .takeaway-menu img{ 
+        width: 280px;
+    }
+    .dine-menu img{ 
+        width: 280px;
+    }
+    .menu-title{ 
+        display: block; 
+    }
+}
+
+
+/*takeaway-menu-page*/ 
+.tab-title{ 
+    margin: 20px 10px; 
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/*dinner Menu*/ 
+.award-img-container{ 
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.award-img-container>div{ 
+    width: 300px;
+    height: 300px;
+}
+.box-media-zoom{ 
+    width:300px; 
+    height: 300px;
+    display: block;
+}
+.grid-item img{ 
+    width: 300px; 
+    height: 300px;
+}
+.mobile-contact{ 
+    display:none;
+}
+
+@media only screen and (max-width: 1063px) {
+.desktop-contact{ 
+    display:none;
+}
+.mobile-contact{ 
+    display:block;
+}
+
+
+}
