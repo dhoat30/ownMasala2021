@@ -2,9 +2,9 @@
 function initRestabook() {
     "use strict";
     //faq
-    $(".accordion_header").click(function(){
+    $(".accordion_header").click(function () {
         $(".accordion_header").removeClass("active");
-       $(this).addClass("active");
+        $(this).addClass("active");
     });
     //   loader ------------------
     firstLoad();
@@ -223,14 +223,14 @@ function initRestabook() {
     //   menu tabs------------------
     var transitionLayer2 = $('.cd-tabs-layer'),
         transitionBackground2 = transitionLayer2.children(),
-        frameProportion2 = 1.78, 
+        frameProportion2 = 1.78,
         frames2 = transitionLayer2.data('frame'),
         resize2 = false;
     setLayerDimensions2();
     $(window).on('resize', function () {
         if (!resize2) {
             resize2 = true;
-            (!window.requestAnimationFrame) ? setTimeout(setLayerDimensions2, 300): window.requestAnimationFrame(setLayerDimensions2);
+            (!window.requestAnimationFrame) ? setTimeout(setLayerDimensions2, 300) : window.requestAnimationFrame(setLayerDimensions2);
         }
     });
     $(".change_bg a").on("click", function () {
@@ -346,7 +346,7 @@ function initRestabook() {
                 640: {
                     slidesPerView: 1,
                 },
-            }			
+            }
         });
     }
     if ($(".events-carousel").length > 0) {
@@ -576,14 +576,14 @@ function initRestabook() {
     });
     var transitionLayer3 = $('.cd-reserv-overlay-layer'),
         transitionBackground3 = transitionLayer3.children(),
-        frameProportion3 = 1.78, 
+        frameProportion3 = 1.78,
         frames3 = transitionLayer3.data('frame'),
         resize3 = false;
     setLayerDimensions3();
     $(window).on('resize', function () {
         if (!resize3) {
             resize3 = true;
-            (!window.requestAnimationFrame) ? setTimeout(setLayerDimensions3, 300): window.requestAnimationFrame(setLayerDimensions3);
+            (!window.requestAnimationFrame) ? setTimeout(setLayerDimensions3, 300) : window.requestAnimationFrame(setLayerDimensions3);
         }
     });
     function setLayerDimensions3() {
@@ -882,3 +882,62 @@ $(document).ready(function () {
     initRestabook();
     initparallax();
 });
+
+// Takeaway Menu ----------------------------------------------------------------------------------------------
+
+// chicken mains 
+
+var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+};
+
+
+
+const fetchFunction = (url, options, appendClass) => {
+    let dataArray
+    fetch(url, options)
+        .then(response => response.text())
+        .then(result => {
+            const obj = JSON.parse(result)
+            const reverseObj = obj.items.reverse()
+            console.log(reverseObj)
+            // call apoend content function 
+            appendContent(reverseObj, appendClass)
+        })
+        .catch(error => console.log('error', error));
+}
+
+
+const appendContent = (dataArray, appendClass) => {
+    console.log('running append function ')
+    return dataArray.map(data => {
+        console.log(data.fields)
+        $(appendClass).append(`    <div class="hero-menu-item">
+            <div class="hero-menu-item-title fl-wrap">
+                <h6>  ${data.fields.dishName.toUpperCase()}</h6>
+                <div class="hmi-dec"></div>
+                <span class="hero-menu-item-price">$${data.fields.price} </span>
+
+            </div>
+            <div class="hero-menu-item-details">
+                <p>
+                   ${data.fields.description}
+                </p>
+                </div>
+            </div>
+        `);
+    })
+}
+
+// get chicken dishes 
+fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/master/entries?access_token=wYAK1l0Eu2uB8McdAU_K4ViUPj7uYcQ9-0xrU81dvSA&metadata.tags.sys.id[all]=lambbeefgoat", requestOptions, '.lamb-beef-goat');
+
+fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/master/entries?access_token=wYAK1l0Eu2uB8McdAU_K4ViUPj7uYcQ9-0xrU81dvSA&metadata.tags.sys.id[all]=chicken", requestOptions, '.takeaway-chicken');
+
+fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/master/entries?access_token=wYAK1l0Eu2uB8McdAU_K4ViUPj7uYcQ9-0xrU81dvSA&metadata.tags.sys.id[all]=indoChinese", requestOptions, '.indo-chinese');
+
+fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/master/entries?access_token=wYAK1l0Eu2uB8McdAU_K4ViUPj7uYcQ9-0xrU81dvSA&metadata.tags.sys.id[all]=prawnsScallopsfishgf", requestOptions, '.seafood');
+
+fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/master/entries?access_token=wYAK1l0Eu2uB8McdAU_K4ViUPj7uYcQ9-0xrU81dvSA&metadata.tags.sys.id[all]=vegetarianGf", requestOptions, '.vegetarian');
+
