@@ -895,7 +895,6 @@ var requestOptions = {
 
 
 const fetchFunction = (url, options, appendClass) => {
-    let dataArray
     fetch(url, options)
         .then(response => response.text())
         .then(result => {
@@ -912,7 +911,6 @@ const fetchFunction = (url, options, appendClass) => {
 const appendContent = (dataArray, appendClass) => {
     console.log('running append function ')
     return dataArray.map(data => {
-        console.log(data.fields)
         $(appendClass).append(`    <div class="hero-menu-item">
             <div class="hero-menu-item-title fl-wrap">
                 <h6>  ${data.fields.dishName.toUpperCase()}</h6>
@@ -922,13 +920,16 @@ const appendContent = (dataArray, appendClass) => {
             </div>
             <div class="hero-menu-item-details">
                 <p>
-                   ${data.fields.description}
-                </p>
-                </div>
-            </div>
-        `);
+                   ${data.fields.description} 
+                </p >
+                </div >
+            </div >
+    `);
     })
 }
+
+// starter
+fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/master/entries?access_token=wYAK1l0Eu2uB8McdAU_K4ViUPj7uYcQ9-0xrU81dvSA&metadata.tags.sys.id[all]=entrees", requestOptions, '.starter');
 
 // get chicken dishes 
 fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/master/entries?access_token=wYAK1l0Eu2uB8McdAU_K4ViUPj7uYcQ9-0xrU81dvSA&metadata.tags.sys.id[all]=lambbeefgoat", requestOptions, '.lamb-beef-goat');
@@ -941,3 +942,13 @@ fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/maste
 
 fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/master/entries?access_token=wYAK1l0Eu2uB8McdAU_K4ViUPj7uYcQ9-0xrU81dvSA&metadata.tags.sys.id[all]=vegetarianGf", requestOptions, '.vegetarian');
 
+// rice dishes 
+fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/master/entries?access_token=wYAK1l0Eu2uB8McdAU_K4ViUPj7uYcQ9-0xrU81dvSA&metadata.tags.sys.id[all]=rice", requestOptions, '.rice');
+// naan
+fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/master/entries?access_token=wYAK1l0Eu2uB8McdAU_K4ViUPj7uYcQ9-0xrU81dvSA&metadata.tags.sys.id[all]=naan", requestOptions, '.naan');
+
+// condiments
+fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/master/entries?access_token=wYAK1l0Eu2uB8McdAU_K4ViUPj7uYcQ9-0xrU81dvSA&metadata.tags.sys.id[all]=condiments", requestOptions, '.condiments');
+
+// salads
+fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/master/entries?access_token=wYAK1l0Eu2uB8McdAU_K4ViUPj7uYcQ9-0xrU81dvSA&metadata.tags.sys.id[all]=salads", requestOptions, '.salads');
