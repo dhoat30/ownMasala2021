@@ -5,7 +5,9 @@ function singleMap() {
     }
     //   Your locations ------------------ 
     var locations = [
-        ['Own Masala in Tauranga', -37.6976207, 176.158003]
+        ['Restabook in Manhattan', 40.7143528, -74.0059731],
+        ['Restabook in Bronx', 40.7168183, -73.9973402],
+        ['Restabook in Queens', 40.73334016, -73.99330616],
     ];
     //  map settings ------------------	
     var single_map = new google.maps.Map(document.getElementById('singleMap'), {

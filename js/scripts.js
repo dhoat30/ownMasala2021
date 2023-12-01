@@ -733,8 +733,10 @@ function initRestabook() {
             vch = $(".video-container");
         bvc.append('<iframe src="//player.vimeo.com/video/' + w + '?background=1"  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen ></iframe>');
         $(".video-holder").height(bvmc.height());
+        console.log($(".video-holder").length)
         if ($(window).width() > 1024) {
-            if ($(".video-holder").size() > 0)
+
+            if ($(".video-holder").length > 0)
                 if (bvmc.height() / 9 * 16 > bvmc.width()) {
                     bvfc.height(bvmc.height()).width(bvmc.height() / 9 * 16);
                     bvfc.css({
@@ -900,7 +902,6 @@ const fetchFunction = (url, options, appendClass) => {
         .then(result => {
             const obj = JSON.parse(result)
             const reverseObj = obj.items.reverse()
-            console.log(reverseObj)
             // call apoend content function 
             appendContent(reverseObj, appendClass)
         })
@@ -909,12 +910,30 @@ const fetchFunction = (url, options, appendClass) => {
 
 
 const appendContent = (dataArray, appendClass) => {
-    console.log('running append function ')
     return dataArray.map(data => {
-        $(appendClass).append(`    <div class="hero-menu-item">
+        // check if the home page lunch special class exist 
+        // we don't need prices here
+        if (appendClass === ".lunch-special-home") {
+            $(appendClass).append(`    <div class="hero-menu-item">
             <div class="hero-menu-item-title fl-wrap">
                 <h6>  ${data.fields.dishName.toUpperCase()}</h6>
+
+            </div>
+            <div class="hero-menu-item-details">
+                <p>
+                   ${data.fields.description} 
+                </p >
+                </div >
+            </div >
+    `);
+        }
+        else {
+            $(appendClass).append(`    <div class="hero-menu-item">
+            <div class="hero-menu-item-title fl-wrap">
+                <h6>  ${data.fields.dishName.toUpperCase()}</h6>
+                
                 <div class="hmi-dec"></div>
+                
                 <span class="hero-menu-item-price">$${data.fields.price} </span>
 
             </div>
@@ -925,6 +944,8 @@ const appendContent = (dataArray, appendClass) => {
                 </div >
             </div >
     `);
+        }
+
     })
 }
 
@@ -952,3 +973,22 @@ fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/maste
 
 // salads
 fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/master/entries?access_token=wYAK1l0Eu2uB8McdAU_K4ViUPj7uYcQ9-0xrU81dvSA&metadata.tags.sys.id[all]=salads", requestOptions, '.salads');
+
+
+// show lunch specials on home page 
+fetchFunction("https://cdn.contentful.com/spaces/gu1m69ni2sg1/environments/master/entries?access_token=wYAK1l0Eu2uB8McdAU_K4ViUPj7uYcQ9-0xrU81dvSA&metadata.tags.sys.id[all]=lunchSpecial", requestOptions, '.lunch-special-home');
+
+// show lunhc special pop up on click
+$('.view-curries').on("click", () => {
+    $('.lunch-special-home').show()
+    $('.overlay').show()
+})
+// hide lunch special on click
+$('.overlay').on('click', () => {
+    $('.lunch-special-home').hide()
+    $('.overlay').hide()
+})
+$('.close').on('click', () => {
+    $('.lunch-special-home').hide()
+    $('.overlay').hide()
+})
